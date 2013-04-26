@@ -27,23 +27,9 @@ Source0:        https://github.com/downloads/libgit2/libgit2/libgit2-0.18.0.tar.
 BuildRequires:  cmake
 BuildRequires:  pkgconfig
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
-%if 0%{?fedora} || 0%{?rhel_version} || 0%{?centos_version}
 BuildRequires:  openssl-devel
-%else
-BuildRequires:  libopenssl-devel
-%endif
 
 %description
-libgit2 is a portable, pure C implementation of the Git core methods
-provided as a re-entrant linkable library with a solid API, allowing
-you to write native speed custom Git applications in any language
-with bindings.
-
-%package -n %{name}-0
-Summary:        C git library
-Group:          System/Libraries
-
-%description -n %{name}-0
 libgit2 is a portable, pure C implementation of the Git core methods
 provided as a re-entrant linkable library with a solid API, allowing
 you to write native speed custom Git applications in any language
@@ -52,7 +38,7 @@ with bindings.
 %package devel
 Summary:        C git library
 Group:          Development/Libraries/C and C++
-Requires:       %{name}-0 >= %{version}
+Requires:       %{name} >= %{version}
 
 %description devel
 This package contains all necessary include files and libraries needed
@@ -71,10 +57,10 @@ make %{?_smp_mflags}
 %install
 %make_install
 
-%post -n %{name}-0 -p /sbin/ldconfig
-%postun -n %{name}-0 -p /sbin/ldconfig
+%post -n %{name} -p /sbin/ldconfig
+%postun -n %{name} -p /sbin/ldconfig
 
-%files -n %{name}-0
+%files -n %{name}
 %defattr (-,root,root)
 %{_libdir}/%{name}.so.*
 
