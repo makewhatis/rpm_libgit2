@@ -17,13 +17,13 @@
 # Please submit bugfixes or comments via http://bugs.opensuse.org/
 #
 Name:           libgit2
-Version:        0.18.0
+Version:        0.19.0
 Release:        1%{?dist}
 Summary:        C git library
 License:        GPL-2.0 with linking
 Group:          Development/Libraries/C and C++
 Url:            http://libgit2.github.com/
-Source0:        https://github.com/downloads/libgit2/libgit2/libgit2-0.18.0.tar.gz
+Source0:        https://github.com/downloads/libgit2/libgit2/libgit2-0.19.0.tar.gz
 BuildRequires:  cmake
 BuildRequires:  pkgconfig
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
@@ -71,6 +71,8 @@ make %{?_smp_mflags}
 %{_libdir}/pkgconfig/libgit2.pc
 
 %changelog
+* Tue Apr 25 2013 david@makewhatis.com - 0.19.0-1
+- Update to version 0.19.0 
 * Tue Apr 25 2013 david@makewhatis.com - 0.18.0-1
 - Update to version 0.18.0 
 * Tue Mar 04 2012 tuxdna@gmail.com
